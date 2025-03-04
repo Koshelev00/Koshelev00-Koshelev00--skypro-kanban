@@ -1,5 +1,6 @@
 import '../../App.css'
 import Column from '../Column/Column'
+import Card from '../Card/Card'
 
 export default function Main() {
     return (
@@ -9,11 +10,11 @@ export default function Main() {
       <div className="main__block">
         <div className="main__content">
 
-        <Column/>
-        <Column/>
-        <Column/>
-        <Column/>
-        <Column/>
+        <Column title="Без статуса"/>
+        <Column title="Нужно сделать" Card={Card.title}/>
+        <Column title="В работе"/>
+        <Column title="Тестирование"/>
+        <Column title="Готово"/>
         
           {/* <div className="main__column column">
             <div className="column__title">
