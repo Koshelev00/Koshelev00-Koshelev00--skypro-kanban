@@ -1,11 +1,9 @@
 import '../../App.css'
-export default function Card(card) {
+export default function Card({title, date, topic}) {
     return (
         <div className="cards__card card">
                   <div className="card__group">
-                    <div className="card__theme _orange">
-                      <p className="_orange">Web Design</p>
-                    </div>
+                   {cardTopic (topic)}
                     <a href="#popBrowse" target="_self">
                       <div className="card__btn">
                         <div></div>
@@ -16,7 +14,7 @@ export default function Card(card) {
                   </div>
                   <div className="card__content">
                     <a href="" target="_blank">
-                      <h3 className="card__title">{card.title}</h3>
+                      <h3 className="card__title">{title}</h3>
                     </a>
                     <div className="card__date">
                       <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none">
@@ -30,9 +28,27 @@ export default function Card(card) {
                           </clipPath>
                         </defs>
                       </svg>
-                      <p>{card.date}</p>
+                      <p>{date}</p>
                     </div>
                   </div>
                 </div>
     )
+}
+const cardTopic = (topic) => {
+  if (topic === "Web design") {
+    return <div className="card__theme _orange">
+      <p className="_orange">Web Design</p>
+    </div>
+  }
+  if (topic === "Research") {
+    return <div className="card__theme _green">
+      <p className="_green">Research</p>
+    </div>
+  }
+  else {
+    return <div className="card__theme _purple">
+     <p class="_purple">Copywriting</p>
+    </div>
+
+  }
 }
