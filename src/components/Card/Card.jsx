@@ -47,7 +47,7 @@ const cardTopic = (topic) => {
   }
   else {
     return <div className="card__theme _purple">
-     <p class="_purple">Copywriting</p>
+     <p className="_purple">Copywriting</p>
     </div>
 
   }
