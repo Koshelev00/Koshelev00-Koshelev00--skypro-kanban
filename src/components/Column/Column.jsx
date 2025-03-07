@@ -1,5 +1,4 @@
 import "../../App.css";
-// import { cardList } from "../../data.js";
 import Card from "../Card/Card";
 export default function Column({ title, cards }) {
   return (

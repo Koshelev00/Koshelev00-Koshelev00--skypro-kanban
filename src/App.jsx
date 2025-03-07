@@ -7,11 +7,6 @@ import Main from './components/Main/Main.jsx'
 import PopExit from './components/popups/PopExit/PopExit.jsx'
 import React, { useState, useEffect } from 'react';
 
-// const Loader = ({ loading}) => {
-//   return loading && <p>Идёт загрузка...</p>
-// };
-
-// export default Loader;
 export default function App() {
   const [loading, setLoading] = useState(true);
   
@@ -21,7 +16,7 @@ export default function App() {
       setLoading(false);
     }, 3000);
     
-    return () => clearTimeout(timer); // Очистка таймера при размонтировании
+    return () => clearTimeout(timer); 
   }, []);
   
   return (

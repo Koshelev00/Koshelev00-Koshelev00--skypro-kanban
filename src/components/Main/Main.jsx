@@ -3,7 +3,6 @@ import Column from '../Column/Column'
 import { cardList } from '../../data.js';
 
 export default function Main() {
-// import { cardList } from '../../data'
 const columns = {
   'БЕЗ СТАТУСА': cardList.filter(card => card.status === 'Без статуса'),
   'НУЖНО СДЕЛАТЬ': cardList.filter(card => card.status === 'Нужно сделать'),
