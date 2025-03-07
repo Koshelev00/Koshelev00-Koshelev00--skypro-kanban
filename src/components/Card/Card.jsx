@@ -1,4 +1,5 @@
 import '../../App.css'
+// import { cardList } from '../../data'
 export default function Card({title, date, topic}) {
     return (
         <div className="cards__card card">

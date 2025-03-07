@@ -1,49 +1,28 @@
 import '../../App.css'
 import Column from '../Column/Column'
+import { cardList } from '../../data.js';
 
 export default function Main() {
-    return (
-        <main className="main">
-    <div className="container">
-      
-      <div className="main__block">
-        <div className="main__content">
+// import { cardList } from '../../data'
+const columns = {
+  'БЕЗ СТАТУСА': cardList.filter(card => card.status === 'Без статуса'),
+  'НУЖНО СДЕЛАТЬ': cardList.filter(card => card.status === 'Нужно сделать'),
+  'В РАБОТЕ': cardList.filter(card => card.status === 'В работе'),
+  'Тестирование': cardList.filter(card => card.status === 'Тестирование'),
+  'ГОТОВО': cardList.filter(card => card.status === 'Готово'),
+};
 
-        <Column title="Без статуса"
-          cardsData={[
-            { title: "Заголовок 1", date: "06.01.2023", topic: "Research"},
-            { title: "Заголовок 2", date: "04.01.2023" , topic: "Web design" }
-        ]}/>
-        <Column title="Нужно сделать"
-           cardsData={[
-            { title: "Заголовок 1", date: "02.01.2023", topic: "Web design" },
-            { title: "Заголовок 2", date: "02.01.2023" }
-        ]}
-        />
-          
-        
-        <Column title="В работе"
-          cardsData={[
-            { title: "Заголовок 1", date: "10.01.2023" , topic: "Research"},
-            { title: "Заголовок 2", date: "03.01.2023" , topic: "Web design"}
-        ]}/>
-        <Column title="Тестирование"
-          cardsData={[
-            { title: "Заголовок 1", date: "01.01.2023" },
-            { title: "Заголовок 2", date: "08.01.2023" , topic: "Research"}
-        ]}/>
-        <Column title="Готово"
-          cardsData={[
-            { title: "Заголовок 1", date: "09.01.2023" , topic: "Research"},
-            { title: "Заголовок 2", date: "07.01.2023" }
-        ]}/>
-        
-          
-          
-        </div>
-      
+return (
+  <main className="main">
+      <div className="container">
+          <div className="main__block">
+              <div className="main__content">
+                  {Object.keys(columns).map((title) => (
+                      <Column key={title} title={title} cards={columns[title]} cards={columns[title]}/>
+                  ))}
+              </div>
+          </div>
       </div>
-    </div>
   </main>
-    )
+);
 }
