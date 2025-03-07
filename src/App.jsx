@@ -5,27 +5,43 @@ import PopNewCard from './components/PopNewCard/PopNewCard.jsx'
 import PopBrowse from './components/PopBrowse/PopBrowse.jsx'
 import Main from './components/Main/Main.jsx'
 import PopExit from './components/popups/PopExit/PopExit.jsx'
+import React, { useState, useEffect } from 'react';
 
+// const Loader = ({ loading}) => {
+//   return loading && <p>Идёт загрузка...</p>
+// };
+
+// export default Loader;
 export default function App() {
+  const [loading, setLoading] = useState(true);
+  
+
+    useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+    
+    return () => clearTimeout(timer); // Очистка таймера при размонтировании
+  }, []);
+  
   return (
-  <>
-  <div className="wrapper">
-    {/* <!-- pop-up start--> */}
-  
-    <PopExit/>
+    <>
+      <div className="wrapper">
+        {/* <!-- pop-up start--> */}
+        <PopExit />
+        <PopNewCard />
+        <PopBrowse />
+        {/* <!-- pop-up end--> */}
 
-    <PopNewCard/>
+        {loading ?  <><Header /> <p className="loud">Идёт загрузка...</p> </>: (
+          <>
+            <Header />
+            <Main />
+          </>
+        )}
+      </div>
 
-    <PopBrowse/>
-  
-    {/* <!-- pop-up end--> */}
-
-    <Header/>
-    <Main/>
-  
-  </div>
-
-  <script src="js/script.js"></script>
-  </>
-  )
+      <script src="js/script.js"></script>
+    </>
+  );
 }

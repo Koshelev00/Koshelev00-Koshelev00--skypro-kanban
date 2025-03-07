@@ -12,7 +12,7 @@ export default function Column({ title, cards }) {
             {cards.map((card) => (
                <div className="cards__item" key={card.id}>
               <Card
-                key={card.id}
+                
                 id={card.id}
                 topic={card.topic}
                 title={card.title}

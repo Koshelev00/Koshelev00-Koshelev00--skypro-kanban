@@ -18,7 +18,7 @@ return (
           <div className="main__block">
               <div className="main__content">
                   {Object.keys(columns).map((title) => (
-                      <Column key={title} title={title} cards={columns[title]} cards={columns[title]}/>
+                      <Column key={title} title={title} cards={columns[title]} />
                   ))}
               </div>
           </div>
